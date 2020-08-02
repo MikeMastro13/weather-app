@@ -1,31 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Dashboard</title>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Weather Dashboard</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+		<link rel="stylesheet" href="assets/css/style.css" />
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<!-- FontAwesome -->
+		<script src="https://kit.fontawesome.com/f17b5acda2.js" crossorigin="anonymous"></script>
+	</head>
 
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-    <nav class="navbar navbar-dark bg-dark">
-        <a href="index.html" class="navbar-brand">Weather Dashboard</a>
-    </nav>
+	<body>
+		<nav class="navbar navbar-dark bg-dark">
+			<h1 class="navbar-brand">Weather Dashboard</h1>
+		</nav>
 
-    <div class="jumbotron">
-        <h2 id="city-title">Atlanta 8/15/2019</h2>
-        <p id="city-temp">Temperature: 90.9 F</p>
-        <p id="city-humidity">Humidity: 41%</p>
-        <p id="wind-speed">Wind Speed: 4.7 MPH</p>
-        <p id="uv-index">UV Index: 9.49</p>
-    </div>
+		<main class="container-fluid">
+			<div class="row">
+				<div class="jumbotron col-12 col-md-3">
+					<div class="row">
+						<div class="col-12">
+							<label for="search" id="searchLabel">Search for a City:</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-group mb-3">
+							<input
+								id="searchInput"
+								type="text"
+								class="form-control"
+								placeholder=""
+								aria-label="Example text with button addon"
+								aria-describedby="button-addon1"
+							/>
+							<div class="input-group-prepend">
+								<button id="btnSearchSubmit" class="btn btn-primary" type="button" id="button-addon1">
+									<i class="fas fa-search"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<ul id="city-list" class="list-group"></ul>
+						</div>
+					</div>
+				</div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="assets/js/script.js"></script>
-</body>
+				<div class="col-md-9 col-sm-8 right-side">
+					<div class="row">
+						<div class="col-12 mt-3">
+							<div class="card card-big">
+								<div class="card-body">
+									<div id="today">
+										<i id="conditions-image" class="far fa-sun"></i>
+									</div>
+									<div class="row">
+										<div class="col-sm-6 px-0">
+											<table class="table table-sm table-hover">
+												<tr>
+													<th>Temperature:</th>
+													<td><span id="temperature"></span></td>
+												</tr>
+												<tr>
+													<th>Humidity:</th>
+													<td><span id="humidity"></span></td>
+												</tr>
+												<tr>
+													<th>Windspeed:</th>
+													<td><span id="wind-speed"></span></td>
+												</tr>
+												<tr>
+													<th>UV Index:</th>
+													<td><span id="uv-index"></span></td>
+												</tr>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12 mt-3">
+							<h2>5-Day Forecast:</h2>
+							<div class="row five-day"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<script src="assets/js/script.js"></script>
+	</body>
 </html>
