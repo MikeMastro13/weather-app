@@ -3,3 +3,8 @@
     font-weight: 600;
     margin: 0 auto;
 }
+
+.weather-card {
+    margin-left: 15px;
+    padding: 20px;
+}

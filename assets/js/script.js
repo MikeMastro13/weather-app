@@ -116,7 +116,6 @@ function addCity() {
     let coord = response.coord;
     $("#head-city-date").text(city + moment().format(" (M/D/YYYY)"));
     $(".right-pane").hide().fadeIn(1000);
-    $("#conditions-image").attr("src", iconUrl).attr("alt", condition);
     $("#description").text(condition);
     $("#head-city-date").text(
       response.name + moment.unix(response.dt).format(" (M/DD/YYYY)")
@@ -133,7 +132,7 @@ function addCity() {
     console.log("5-Day Forecast Response Received");
     console.log(response);
   
-    $fiveDay.empty();
+    $forecast.empty();
     let numDays = 5;
     let numHoursPerBlock = 3;
     let numTimeBlocksPerDay = 24 / numHoursPerBlock;
@@ -154,7 +153,7 @@ function addCity() {
         tempF.toFixed(0),
         humidity.toFixed(0)
       );
-      $fiveDay.append(card);
+      $forecast.append(card);
     }
   }
   
@@ -194,12 +193,10 @@ function addCity() {
     let hour = momentDay.format("ha");
     let temp = "Temp: " + temperature + "&deg;F";
     let humid = "Humidity: " + humidity + "%";
-    let imgAlt = description;
   
-    let card = $("<div>").addClass("col-md-auto col-sm-12 card card-small");
+    let card = $("<div>").addClass("col-md-auto col-sm-12 card bg-primary text-white weather-card");
     card.append($("<h5>").addClass("card-title dayDate").text(date));
     card.append($("<p>").addClass("card-text dayHour").text(hour));
-    card.append($("<img>").attr("src", iconUrl).attr("alt", imgAlt));
     card.append($("<p>").addClass("card-text dayTemp").html(temp));
     card.append($("<p>").addClass("card-text dayHumidity").text(humid));
     return card;
